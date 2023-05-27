@@ -21,6 +21,9 @@ class HealthCareProviderController < ApplicationController
     customer = Person.find_by_health_id(health_id)
     resp = InsuranceHelper.process_pre_auth(amount, claim_type, requester_id, customer.id)
     render json: resp
+  rescue StandardError => e
+    puts(e.message)
+    render json: {msg: "Bad request"}
   end
 
   def update_docs_and_send_claim_request
@@ -30,6 +33,9 @@ class HealthCareProviderController < ApplicationController
     CentralEntityHelper.add_data_to_health_record(params[:prescriptions], params[:invoices], params[:person_id])
     resp = InsuranceHelper.send_claim_request(claim_id, amount, claim_type)
     render json: resp
+  rescue StandardError => e
+    puts(e.message)
+    render json: {msg: "Bad request"}
   end
 
 end

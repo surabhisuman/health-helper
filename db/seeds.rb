@@ -16,15 +16,9 @@ person = Person.create(
   aadhar_number: "12332423",
 )
 
-consent = Consent.create(
-  requested_by: "<health-care-provider-id>",
-  person: person
-)
-
 health_report = HealthReport.create(
   person: person
 )
-
 
 policy = InsurancePolicy.create(
   insurer: "Insure Inc",
@@ -34,4 +28,21 @@ policy = InsurancePolicy.create(
   covers: "dental, opd, cancer, daibetes",
   coverage: 40000,
   health_report_id: health_report.id
+)
+
+consent = Consent.create(
+  person: person,
+  requested_by: "Insure Inc",
+  registered_on: Time.now
+)
+
+prescription = Prescription.create(
+  health_report: health_report,
+  medicines: ["Jalra-OD 100mg (tablet) | Vildagliptin", "Telmis 20 (Tablet)"],
+  lab_tests: []
+)
+
+invoice = Invoice.create(
+  amount: 1000,
+  health_report: health_report
 )

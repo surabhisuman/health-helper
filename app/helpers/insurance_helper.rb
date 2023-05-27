@@ -7,16 +7,17 @@ module InsuranceHelper
     # and register claim in database with pre-auth status
     def process_pre_auth(amount, claim_type, requester_id, customer_id)
       consent = Consent.find_by(person_id: customer_id, requested_by: requester_id)
-      if consent
+      # a consent is valid for 2 days
+      if consent && (Time.now-1.day..Time.now+2.days).cover?(consent.registered_on)
         # health_report = HealthReport.find_by_person_id(customer_id)
         eligibility = CentralEntityHelper.get_eligibility(amount, claim_type, customer_id).with_indifferent_access
         eligible_policy_id = eligibility[:eligible_policy_id]
         claim = Claim.create(status: "pre-auth-approved", person_id: customer_id, insurance_policy_id: eligible_policy_id)
-        return { "success": true, "claim_id": claim.id }
+        return { "success": true, "claim_id": claim.id, msg: "Pre auth claim registered successfully" }
       else
         NotificationHelper.send_notification(requester_id, customer_id, "Pre Auth Request")
         # send notification
-        return {"success": false }
+        return { "success": false, "msg": "Consent pending fom customer" }
       end
     end
 
@@ -44,6 +45,7 @@ module InsuranceHelper
         claim.update(status: new_status)
         # todo: create notif & notify customer
       end
+      #todo: update claim and max coverage to central DB too
     end
   end
 end
