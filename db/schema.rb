@@ -54,13 +54,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_110904) do
     t.datetime "end_date"
     t.integer "sum_insured"
     t.string "covers"
+    t.integer "health_report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "coverage"
+    t.integer "coverage"
   end
 
   create_table "invoices", force: :cascade do |t|
     t.integer "amount"
+    t.integer "health_report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -89,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_110904) do
   create_table "prescriptions", force: :cascade do |t|
     t.string "medicines"
     t.string "lab_tests"
+    t.integer "health_report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

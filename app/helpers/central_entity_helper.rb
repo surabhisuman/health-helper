@@ -2,10 +2,10 @@ module CentralEntityHelper
   class << self
 
     def get_eligibility(claim_amount, claim_type, customer_id)
-      health_record = HealthReport.find_by_person_id(customer_id)
-      return false unless health_record
-      health_record.insurance_policies.each do |policy|
-        if policy.covers.contains(claim_type) && claim_amount <= policy.coverage.to_i
+      health_report = HealthReport.find_by_person_id(customer_id)
+      return { is_eligible: false } unless health_report
+      health_report.insurance_policies.each do |policy|
+        if policy.covers.include?(claim_type.downcase) && claim_amount <= policy.coverage.to_i
           return { eligible_policy_id: policy.id, max_coverage_left: policy.coverage, is_eligible: true }
         end
       end

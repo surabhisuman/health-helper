@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   resources :invoices
   resources :people
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  #
 
+  post '/eligibility', to: 'health_care_provider#check_eligibility'
+  post '/send_pre_auth_request', to: 'health_care_provider#send_pre_auth_request'
+  post '/update_docs_and_send_claim_request', to: 'health_care_provider#health_care_provider'
   # Defines the root path route ("/")
   # root "articles#index"
+  #
 end

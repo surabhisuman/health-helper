@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="512346dc-051b-4a1f-8623-a2777c16bbfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/helpers/notification_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <list id="c91f6ed9-7142-4008-83e4-9953b4ac0dcd" name="Changes by abhishek" comment="">
       <change beforePath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/health_report.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/health_report.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/person.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/person.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20230527081421_create_invoices.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20230527081421_create_invoices.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20230527081548_create_insurance_policies.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20230527081548_create_insurance_policies.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20230527083418_create_prescriptions.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20230527083418_create_prescriptions.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20230527100527_add_coverage_to_insurance_policy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20230527100527_add_coverage_to_insurance_policy.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,13 +36,20 @@
     </file-type-list>
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/app/helpers/insurance_helper.rb">
+    <file path="$PROJECT_DIR$/config/routes.rb">
       <ranges>
-        <range start1="0" end1="1" start2="0" end2="1" changelist="c91f6ed9-7142-4008-83e4-9953b4ac0dcd" />
-        <range start1="16" end1="18" start2="16" end2="17" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
-        <range start1="30" end1="34" start2="29" end2="30" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
+        <range start1="11" end1="11" start2="11" end2="12" changelist="c91f6ed9-7142-4008-83e4-9953b4ac0dcd" />
+        <range start1="12" end1="12" start2="13" end2="16" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
+        <range start1="14" end1="14" start2="18" end2="19" changelist="c91f6ed9-7142-4008-83e4-9953b4ac0dcd" />
       </ranges>
     </file>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -164,7 +179,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685174401090</updated>
-      <workItem from="1685174402295" duration="13645000" />
+      <workItem from="1685174402295" duration="18374000" />
     </task>
     <servers />
   </component>
@@ -181,5 +196,22 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb</url>
+          <line>7</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/health_helper@Development__health_helper.rcov" NAME="Development: health-helper Coverage Results" MODIFIED="1685193542850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="health-helper" />
   </component>
 </project>
