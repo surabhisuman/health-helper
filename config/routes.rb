@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :claim_status_histories
+  resources :notifications
   resources :claims
   resources :health_reports
   resources :prescriptions
