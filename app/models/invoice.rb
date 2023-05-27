@@ -1,3 +1,3 @@
 class Invoice < ApplicationRecord
-  belongs_to :health_report
+  belongs_to :consultation
 end

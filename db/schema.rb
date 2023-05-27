@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_27_175940) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_27_225045) do
   create_table "claim_status_histories", force: :cascade do |t|
     t.integer "claim_id"
     t.string "transition_from"
@@ -28,6 +28,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_175940) do
     t.datetime "updated_at", null: false
     t.string "status"
     t.integer "health_report_id"
+    t.datetime "date_of_service"
+    t.string "diagnosis"
+    t.string "procedure"
+    t.string "provider"
+    t.integer "paid_by_insurance"
+    t.integer "out_of_pocket"
+    t.integer "consultation_id"
     t.index ["health_report_id"], name: "index_claims_on_health_report_id"
     t.index ["insurance_policy_id"], name: "index_claims_on_insurance_policy_id"
     t.index ["person_id"], name: "index_claims_on_person_id"
@@ -40,7 +47,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_175940) do
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "consultation_id"
+    t.index ["consultation_id"], name: "index_consents_on_consultation_id"
     t.index ["person_id"], name: "index_consents_on_person_id"
+  end
+
+  create_table "consultations", force: :cascade do |t|
+    t.integer "health_report_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["health_report_id"], name: "index_consultations_on_health_report_id"
   end
 
   create_table "health_reports", force: :cascade do |t|
@@ -60,13 +76,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_175940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "coverage"
+    t.index ["health_report_id"], name: "index_insurance_policies_on_health_report_id"
   end
 
   create_table "invoices", force: :cascade do |t|
     t.integer "amount"
     t.integer "health_report_id"
+    t.integer "consultation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["consultation_id"], name: "index_invoices_on_consultation_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -76,6 +95,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_175940) do
     t.string "title"
     t.string "data"
     t.string "sender"
+    t.string "type"
+    t.integer "consultation_id"
     t.index ["person_id"], name: "index_notifications_on_person_id"
   end
 
@@ -93,15 +114,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_175940) do
   create_table "prescriptions", force: :cascade do |t|
     t.string "medicines"
     t.string "lab_tests"
+    t.string "transcript"
+    t.string "prescription_detail"
     t.integer "health_report_id"
+    t.integer "consultation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["consultation_id"], name: "index_prescriptions_on_consultation_id"
   end
 
   add_foreign_key "claim_status_histories", "claims"
   add_foreign_key "claims", "insurance_policies"
   add_foreign_key "claims", "people"
   add_foreign_key "consents", "people"
+  add_foreign_key "consultations", "health_reports"
   add_foreign_key "health_reports", "people"
+  add_foreign_key "insurance_policies", "health_reports"
+  add_foreign_key "invoices", "consultations"
   add_foreign_key "notifications", "people"
+  add_foreign_key "prescriptions", "consultations"
 end

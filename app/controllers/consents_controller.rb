@@ -46,6 +46,6 @@ class ConsentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def consent_params
-      params.fetch(:consent, {})
+      params.fetch(:consent)
     end
 end

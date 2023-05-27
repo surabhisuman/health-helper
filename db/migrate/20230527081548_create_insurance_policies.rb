@@ -6,7 +6,7 @@ class CreateInsurancePolicies < ActiveRecord::Migration[7.0]
       t.timestamp :end_date
       t.integer :sum_insured
       t.string :covers, array: true
-      t.integer :health_report_id, required: true
+      t.references :health_report, index: true, foreign_key: true
       t.timestamps
     end
   end

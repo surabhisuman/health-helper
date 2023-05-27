@@ -3,7 +3,13 @@ class NotificationsController < ApplicationController
 
   # GET /notifications
   def index
-    @notifications = Notification.all
+    # fetch all notifications, delete all notification in current scope, send notification over http
+    # wait for next request to come in. one more thing, FE pe state nahi kar payneg manage. no code tool very limited. yes. ok
+    if params[:person_id].present?
+      @notifications = Notification.where(person_id: params[:person_id])
+    else
+      @notifications = Notification.all
+    end
 
     render json: @notifications
   end

@@ -8,41 +8,52 @@
 
 # byebug
 
-person = Person.create(
-  name: "Patient",
-  health_id: "patient@adhm",
-  email: "patient@gmail.com",
-  phone: '9999999999',
-  aadhar_number: "12332423",
-)
+# person = Person.create(
+#   name: "Patient",
+#   health_id: "patient@adhm",
+#   email: "patient@gmail.com",
+#   phone: '9999999999',
+#   aadhar_number: "12332423",
+# )
+#
+# health_report = HealthReport.create(
+#   person: person
+# )
+#
+# consultation = Consultation.create(
+#   health_report: health_report
+# )
+#
+# policy = InsurancePolicy.create(
+#   insurer: "Insure Inc",
+#   start_date: Time.now,
+#   end_date: Time.now + 1.month,
+#   sum_insured: 500000,
+#   covers: "dental, opd, cancer, daibetes",
+#   coverage: 40000,
+#   health_report_id: health_report.id
+# )
+#
+# consent = Consent.create(
+#   person: person,
+#   requested_by: "Insure Inc",
+#   registered_on: Time.now
+# )
+#
+# consultation = Consultation.create(
+#   health_report: health_report
+# )
+#
+# prescription = Prescription.create(
+#   consultation: consultation,
+#   medicines: "Jalra-OD 100mg (tablet) | Vildagliptin, Telmis 20 (Tablet)",
+#   lab_tests: []
+# )
+require_relative 'demo-seeds/priya_sharma'
 
-health_report = HealthReport.create(
-  person: person
-)
+PriyaSharma.setup
 
-policy = InsurancePolicy.create(
-  insurer: "Insure Inc",
-  start_date: Time.now,
-  end_date: Time.now + 1.month,
-  sum_insured: 500000,
-  covers: "dental, opd, cancer, daibetes",
-  coverage: 40000,
-  health_report_id: health_report.id
-)
-
-consent = Consent.create(
-  person: person,
-  requested_by: "Insure Inc",
-  registered_on: Time.now
-)
-
-prescription = Prescription.create(
-  health_report: health_report,
-  medicines: ["Jalra-OD 100mg (tablet) | Vildagliptin", "Telmis 20 (Tablet)"],
-  lab_tests: []
-)
-
-invoice = Invoice.create(
-  amount: 1000,
-  health_report: health_report
-)
+# invoice = Invoice.create(
+#   amount: 1000,
+#   consultation:
+# )

@@ -1,6 +1,7 @@
 class FraudDetectionService
   # TODO: add env variable
   @@client = OpenAI::Client.new(access_token: ENV.fetch("OPEN_AI_TOKEN"))
+  binding.pry
 
   MODEL = "gpt-3.5-turbo"
 
