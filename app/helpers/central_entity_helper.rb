@@ -1,4 +1,4 @@
-class CentralEntityHelper
+module CentralEntityHelper
   class << self
 
     def get_eligibility(claim_amount, claim_type, customer_id)
@@ -15,6 +15,15 @@ class CentralEntityHelper
       # check insurances and it's active status
       # get claim amount, check if policy sum insured and
       # particular claim_type is under covers
+    end
+
+    def add_data_to_health_record(new_prescriptions, new_invoices, customer_id)
+      health_report = HealthReport.find_by_person_id(customer_id)
+      invoices = health_report.invoices
+      invoices.add(new_invoices)
+      prescriptions = health_report.prescriptions
+      prescriptions.add(new_prescriptions)
+      health_report.update(invoices: invoices, prescriptions: prescriptions)
     end
 
   end

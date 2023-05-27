@@ -1,4 +1,4 @@
-class InsuranceHelper
+module InsuranceHelper
   class << self
 
     # check for customer consent on a loop - long polling/while true
@@ -14,13 +14,13 @@ class InsuranceHelper
         claim = Claim.create(status: "pre-auth-approved", person_id: customer_id, insurance_policy_id: eligible_policy_id)
         return { "success": true, "claim_id": claim.id }
       else
-        data = "Pre auth request from " + requester_id
-        notification = Notification.create(title: "Pre-auth request", data: data, person_id: customer_id, sender: requester_id)
+        NotificationHelper.send_notification(requester_id, customer_id, "Pre Auth Request")
         # send notification
         return {"success": false }
       end
     end
 
+    # submit new invoices and prescriptions to central DB
     # check if claim exists
     # check claim status if in a valid state
     # check eligible limit with insurance policy data
@@ -28,10 +28,7 @@ class InsuranceHelper
     # if fraud engine validates
     # mark claim as success
     # send notif to customer
-    def send_claim_request(params)
-      claim_id = params[:claim_id]
-      amount = params[:claims_amount]
-      claim_type = params[:claim_type]
+    def send_claim_request(claim_id, amount, claim_type)
       #todo: add claim type to claim model
       claim = Claim.find_by(id: claim_id)
       if !claim || claim.status != 'pre-auth-approved'
