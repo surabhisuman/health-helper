@@ -13,7 +13,7 @@ module InsuranceHelper
         eligibility = CentralEntityHelper.get_eligibility(amount, claim_type, customer_id).with_indifferent_access
         eligible_policy_id = eligibility[:eligible_policy_id]
         claim = Claim.create(status: "pre-auth-approved", person_id: customer_id, insurance_policy_id: eligible_policy_id)
-        return { "success": true, "claim_id": claim.id, msg: "Pre auth claim registered successfully" }
+        return { "success": true, "claim_id": claim.id, "customer_id": customer_id, msg: "Pre auth claim registered successfully" }
       else
         NotificationHelper.send_notification(requester_id, customer_id, "Pre Auth Request")
         # send notification
@@ -37,15 +37,24 @@ module InsuranceHelper
       end
       eligibility = CentralEntityHelper.get_eligibility(amount, claim_type, claim.person_id)
       if eligibility[:is_eligible]
-        claim.update(status: "processing")
-        #todo: call fraud api
-      else
-        new_status = "rejected"
-        ClaimStatusHistory.create(transition_from: claim.status, transition_to: new_status, claim_id: claim.id)
-        claim.update(status: new_status)
-        # todo: create notif & notify customer
+        updateClaimStatus("processing", claim)
+        is_fraud = false # todo: replace with gpt call
+        unless is_fraud
+          updateClaimStatus("approved", claim)
+          CentralEntityHelper.add_data_to_health_record([], [], [claim], claim.person_id)
+          # NotificationHelper.send_notification(claim.insurance_policy.)
+          return
+        end
       end
-      #todo: update claim and max coverage to central DB too
+      self.updateClaimStatus("rejected", claim)
+      # todo: create notif & notify customer
+    end
+
+    private
+
+    def updateClaimStatus(new_status, claim)
+      ClaimStatusHistory.create(transition_from: claim.status, transition_to: new_status, claim_id: claim.id)
+      claim.update(status: new_status)
     end
   end
 end

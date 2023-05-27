@@ -17,13 +17,19 @@ module CentralEntityHelper
       # particular claim_type is under covers
     end
 
-    def add_data_to_health_record(new_prescriptions, new_invoices, customer_id)
+    def add_data_to_health_record(new_prescriptions, new_invoices, new_claims, customer_id)
       health_report = HealthReport.find_by_person_id(customer_id)
       invoices = health_report.invoices
-      invoices.add(new_invoices)
       prescriptions = health_report.prescriptions
-      prescriptions.add(new_prescriptions)
-      health_report.update(invoices: invoices, prescriptions: prescriptions)
+      new_invoices.each do |ninv|
+        invoices.add(Invoice.create(amount: ninv[:amount], health_report: health_report))
+      end
+      new_prescriptions.each do |npr|
+        prescriptions.add(Prescription.create(medicines: npr[:medicines], lab_tests: npr[:lab_tests], health_report: health_report))
+      end
+      claims = health_report.claims
+      claims.add(new_claims)
+      health_report.update(invoices: invoices, prescriptions: prescriptions, claims: claims)
     end
 
   end
