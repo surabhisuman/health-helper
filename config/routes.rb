@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :consents
   resources :claim_status_histories
   resources :notifications
   resources :claims

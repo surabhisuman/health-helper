@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_27_100527) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_27_110904) do
   create_table "claim_status_histories", force: :cascade do |t|
     t.integer "claim_id"
     t.string "transition_from"
@@ -29,6 +29,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_100527) do
     t.string "status"
     t.index ["insurance_policy_id"], name: "index_claims_on_insurance_policy_id"
     t.index ["person_id"], name: "index_claims_on_person_id"
+  end
+
+  create_table "consents", force: :cascade do |t|
+    t.datetime "registered_on"
+    t.string "requested_by"
+    t.string "access_modules"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_consents_on_person_id"
   end
 
   create_table "health_reports", force: :cascade do |t|
@@ -59,6 +69,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_100527) do
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "data"
+    t.string "sender"
     t.index ["person_id"], name: "index_notifications_on_person_id"
   end
 
@@ -83,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_100527) do
   add_foreign_key "claim_status_histories", "claims"
   add_foreign_key "claims", "insurance_policies"
   add_foreign_key "claims", "people"
+  add_foreign_key "consents", "people"
   add_foreign_key "health_reports", "people"
   add_foreign_key "notifications", "people"
 end

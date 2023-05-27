@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="512346dc-051b-4a1f-8623-a2777c16bbfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/people_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/people_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
+    <list id="c91f6ed9-7142-4008-83e4-9953b4ac0dcd" name="Changes by abhishek" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,6 +39,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="Rails.Development: health-helper">
@@ -151,7 +154,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685174401090</updated>
-      <workItem from="1685174402295" duration="8060000" />
+      <workItem from="1685174402295" duration="12880000" />
     </task>
     <servers />
   </component>

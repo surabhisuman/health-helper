@@ -10,10 +10,15 @@ class HealthCareProviderController < ApplicationController
 
   def send_pre_auth_request
     amount = params[:amount].to_i
+    claim_type = params["claim_type"].to_s
+    requester_id = params["requester_id"]
+    health_id = params[:health_id].to_s
+    customer = Person.find_by_health_id(health_id)
+    InsuranceHelper.process_pre_auth(amount, claim_type, requester_id, customer.id)
   end
 
   def send_claim_request
-
+    InsuranceHelper.send_claim_request(params)
   end
 
 end

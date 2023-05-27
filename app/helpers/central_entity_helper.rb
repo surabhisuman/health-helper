@@ -6,10 +6,10 @@ class CentralEntityHelper
       return false unless health_record
       health_record.insurance_policies.each do |policy|
         if policy.covers.contains(claim_type) && claim_amount <= policy.coverage.to_i
-          return true
+          return { eligible_policy_id: policy.id, max_coverage_left: policy.coverage, is_eligible: true }
         end
       end
-      false
+      { is_eligible: false }
       # get uhid of customer
       # get health record
       # check insurances and it's active status
