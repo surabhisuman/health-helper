@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_27_110904) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_27_175940) do
   create_table "claim_status_histories", force: :cascade do |t|
     t.integer "claim_id"
     t.string "transition_from"
@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_110904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.integer "health_report_id"
+    t.index ["health_report_id"], name: "index_claims_on_health_report_id"
     t.index ["insurance_policy_id"], name: "index_claims_on_insurance_policy_id"
     t.index ["person_id"], name: "index_claims_on_person_id"
   end

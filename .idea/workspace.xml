@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="512346dc-051b-4a1f-8623-a2777c16bbfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.irb_history" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/fraud_detection_service.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/health_report.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/health_report.rb" afterDir="false" />
-    </list>
-    <list id="5ad25485-6d63-457f-870c-89d1472551ca" name="Changes by abhishek" comment="">
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/notification_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/notification_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685174401090</updated>
-      <workItem from="1685174402295" duration="24545000" />
+      <workItem from="1685174402295" duration="30983000" />
     </task>
     <servers />
   </component>
@@ -187,25 +184,41 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/helpers/insurance_helper.rb</url>
-          <line>8</line>
+          <url>file://$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb</url>
+          <line>33</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb</url>
-          <line>29</line>
+          <url>file://$PROJECT_DIR$/app/helpers/notification_helper.rb</url>
+          <line>5</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/helpers/insurance_helper.rb</url>
+          <line>51</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/helpers/insurance_helper.rb</url>
+          <line>47</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/health_helper@Development__health_helper.rcov" NAME="Development: health-helper Coverage Results" MODIFIED="1685200962149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="health-helper" />
+    <SUITE FILE_PATH="coverage/health_helper@Development__health_helper.rcov" NAME="Development: health-helper Coverage Results" MODIFIED="1685212008885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="health-helper" />
   </component>
 </project>

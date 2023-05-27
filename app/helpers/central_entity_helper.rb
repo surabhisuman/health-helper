@@ -19,16 +19,20 @@ module CentralEntityHelper
 
     def add_data_to_health_record(new_prescriptions, new_invoices, new_claims, customer_id)
       health_report = HealthReport.find_by_person_id(customer_id)
-      invoices = health_report.invoices
-      prescriptions = health_report.prescriptions
+      invoices = health_report.invoices.to_a
+      prescriptions = health_report.prescriptions.to_a
       new_invoices.each do |ninv|
-        invoices.add(Invoice.create(amount: ninv[:amount], health_report: health_report))
+        invoices << Invoice.create(amount: ninv[:amount], health_report: health_report)
       end
       new_prescriptions.each do |npr|
-        prescriptions.add(Prescription.create(medicines: npr[:medicines], lab_tests: npr[:lab_tests], health_report: health_report))
+        prescriptions << Prescription.create(medicines: npr[:medicines], lab_tests: npr[:lab_tests], health_report: health_report)
       end
-      claims = health_report.claims
-      claims.add(new_claims)
+      claims = health_report.claims.to_a
+      if new_claims
+        new_claims.each do |nc|
+          claims << nc
+        end
+      end
       health_report.update(invoices: invoices, prescriptions: prescriptions, claims: claims)
     end
 

@@ -38,16 +38,19 @@ module InsuranceHelper
       eligibility = CentralEntityHelper.get_eligibility(amount, claim_type, claim.person_id)
       if eligibility[:is_eligible]
         updateClaimStatus("processing", claim)
+        insured_policy = InsurancePolicy.find_by_id(eligibility[:eligible_policy_id])
         is_fraud = false # todo: replace with gpt call
         unless is_fraud
           updateClaimStatus("approved", claim)
+          updated_coverage = insured_policy.coverage - amount
+          insured_policy.update(coverage: updated_coverage)
           CentralEntityHelper.add_data_to_health_record([], [], [claim], claim.person_id)
-          # NotificationHelper.send_notification(claim.insurance_policy.)
-          return
+          NotificationHelper.send_notification(insured_policy.insurer, claim.person_id, "Claim of Rs." + (amount.to_s) +" approved")
+          return {"success": true, "msg": "Claim processed successfully"}
         end
       end
-      self.updateClaimStatus("rejected", claim)
-      # todo: create notif & notify customer
+      updateClaimStatus("rejected", claim)
+      NotificationHelper.send_notification(insured_policy.insurer, claim.person_id, "Claim of Rs." + amount +" rejected")
     end
 
     private

@@ -28,9 +28,9 @@ class HealthCareProviderController < ApplicationController
 
   def update_docs_and_send_claim_request
     claim_id = params[:claim_id]
-    amount = params[:claims_amount]
+    amount = params[:amount]
     claim_type = params[:claim_type]
-    CentralEntityHelper.add_data_to_health_record(params[:prescriptions], params[:invoices], null, params[:person_id])
+    CentralEntityHelper.add_data_to_health_record(params[:prescriptions], params[:invoices], nil, params[:person_id])
     resp = InsuranceHelper.send_claim_request(claim_id, amount, claim_type)
     render json: resp
   rescue StandardError => e

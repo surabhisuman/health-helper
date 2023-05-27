@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   post '/eligibility', to: 'health_care_provider#check_eligibility'
   post '/send_pre_auth_request', to: 'health_care_provider#send_pre_auth_request'
-  post '/update_docs_and_send_claim_request', to: 'health_care_provider#health_care_provider'
+  post '/health_care_provider', to: 'health_care_provider#update_docs_and_send_claim_request'
   # Defines the root path route ("/")
   # root "articles#index"
   #
