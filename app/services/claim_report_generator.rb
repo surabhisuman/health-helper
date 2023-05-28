@@ -59,7 +59,7 @@ Insurance Provider: %{insurance_provider}
     return history
   end
 
-  def medical_history # TODO: need medical history data set
+  def medical_history # need medical history data set
     ##Patient Medical History:
   end
 

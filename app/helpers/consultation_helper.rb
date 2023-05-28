@@ -21,7 +21,7 @@ module ConsultationHelper
       return consultation
     end
 
-    def create_or_update_consultation(health_report) # update todo
+    def create_or_update_consultation(health_report)
       Consultation.create(health_report: health_report)
     end
   end

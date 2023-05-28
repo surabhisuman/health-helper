@@ -41,7 +41,6 @@ class HealthCareProviderController < ApplicationController
     resp = InsuranceHelper.send_claim_request(claim_id, amount, eligibility)
     claim = Claim.find_by(id: claim_id)
     ConsultationHelper.add_data_to_consultation(params[:prescriptions], params[:invoices], [claim], claim.consultation_id)
-    #todo: debug low priority why above line wasn't working
     consultation = claim.consultation
     CentralEntityHelper.add_data_to_health_record(consultation, customer.id)
     render json: resp

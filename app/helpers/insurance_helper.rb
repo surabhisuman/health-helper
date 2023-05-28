@@ -18,8 +18,6 @@ module InsuranceHelper
       end
       consultation = Consultation.create(health_report: health_report, status: 'pre-auth-approved') if consultation.nil?
       consent = Consent.find_by(person_id: customer_id, consultation_id: consultation.id)
-      #todo: comment next line
-      # consent = Consent.create(consultation: consultation, person_id: customer_id, registered_on: Time.now)
       # a consent is valid for 2 days
       if consent && (Time.now-1.day..Time.now+2.days).cover?(consent.registered_on)
         # health_report = HealthReport.find_by_person_id(customer_id)
@@ -51,7 +49,7 @@ module InsuranceHelper
     # mark claim as success
     # send notif to customer
     def send_claim_request(claim_id, amount, eligibility)
-      #todo: add claim type to claim model
+      #add claim type to claim model
       claim = Claim.find_by(id: claim_id)
       if !claim || claim.status != 'pre-auth-approved'
         return {"success": false, msg: "customer not authorised, invalid claim status"}
@@ -60,7 +58,7 @@ module InsuranceHelper
       if eligibility[:is_eligible]
         updateClaimStatus("processing", claim)
         insured_policy = InsurancePolicy.find_by_id(eligibility[:eligible_policy_id])
-        is_fraud = false # todo: replace with gpt call
+        # is_fraud = false #replace with gpt call
         medical_report = ClaimReportGenerator.new(claim.person_id).generate
         fraud_response = FraudDetectionService.detect(medical_report)
         if fraud_response[:approved] == "Yes"
