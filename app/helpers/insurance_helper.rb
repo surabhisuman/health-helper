@@ -8,8 +8,15 @@ module InsuranceHelper
     def process_pre_auth(requester_id, customer_id, eligibility)
       health_report = HealthReport.find_by_person_id(customer_id)
       # create new consultation at time of pre-auth
-      consultation = Consultation.create(health_report: health_report)
-      #todo: stitch some mechanism to create consent when notification is approved or just create consent from seeds
+      existing_consultations = health_report.consultations || []
+      consultation = nil
+      existing_consultations.each do |ec|
+        if ec.status == 'pre-auth-approved'
+          consultation = ec
+          break
+        end
+      end
+      consultation = Consultation.create(health_report: health_report, status: 'pre-auth-approved') if consultation.nil?
       consent = Consent.find_by(person_id: customer_id, consultation_id: consultation.id)
       #todo: comment next line
       # consent = Consent.create(consultation: consultation, person_id: customer_id, registered_on: Time.now)
@@ -17,12 +24,21 @@ module InsuranceHelper
       if consent && (Time.now-1.day..Time.now+2.days).cover?(consent.registered_on)
         # health_report = HealthReport.find_by_person_id(customer_id)
         eligible_policy_id = eligibility[:eligible_policy_id]
-        claim = Claim.create(status: "pre-auth-approved", person_id: customer_id, insurance_policy_id: eligible_policy_id, consultation_id: consultation.id)
+        existing_claims = consultation.claims || []
+        claim = nil
+        existing_claims.each do |ec|
+          if ec.status == 'pre-auth-approved'
+            claim = ec
+            break
+          end
+        end
+        claim = Claim.create(status: "pre-auth-approved", person_id: customer_id, insurance_policy_id: eligible_policy_id, consultation_id: consultation.id) if claim.nil?
         return { "success": true, "claim_id": claim.id, "consultation_id": consultation.id, msg: "Pre auth claim registered successfully" }
       else
         NotificationHelper.send_notification(requester_id, customer_id, "Pre Auth Request", consultation.id, "CONSENT")
         # send notification
-        return { "success": false, "msg": "Consent pending fom customer" }
+        claim = Claim.find_by(consultation_id: consultation.id, status: "pre-auth-approved")
+        return { "success": false, "msg": "Consent pending fom customer", "claim_id": claim&.id, "consultation_id": consultation.id }
       end
     end
 
@@ -40,20 +56,24 @@ module InsuranceHelper
       if !claim || claim.status != 'pre-auth-approved'
         return {"success": false, msg: "customer not authorised, invalid claim status"}
       end
+      fraud_response = nil
       if eligibility[:is_eligible]
         updateClaimStatus("processing", claim)
         insured_policy = InsurancePolicy.find_by_id(eligibility[:eligible_policy_id])
         is_fraud = false # todo: replace with gpt call
-        unless is_fraud
+        medical_report = ClaimReportGenerator.new(claim.person_id).generate
+        fraud_response = FraudDetectionService.detect(medical_report)
+        if fraud_response[:approved] == "Yes"
           updateClaimStatus("approved", claim)
           updated_coverage = insured_policy.coverage - amount
           insured_policy.update(coverage: updated_coverage)
           NotificationHelper.send_notification(insured_policy.insurer, claim.person_id, "Claim of Rs." + (amount.to_s) +" approved", claim.consultation_id, "NOTICE")
-          return {"success": true, "msg": "Claim processed successfully"}
+          return {"success": true, "msg": "Claim processed successfully", fraud_detector_response: fraud_response}
         end
       end
       updateClaimStatus("rejected", claim)
-      NotificationHelper.send_notification(insured_policy.insurer, claim.person_id, "Claim of Rs." + amount +" rejected", claim.consultation_id, "NOTICE")
+      NotificationHelper.send_notification(insured_policy.insurer, claim.person_id, "Claim of Rs." + (amount.to_s) +" rejected", claim.consultation_id, "NOTICE")
+      return {"success": false, "msg": "Claim rejected", fraud_detector_response: (fraud_response || {"summary": "Not eligible for claim"})}
     end
 
     private

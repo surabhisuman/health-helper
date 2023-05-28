@@ -3,14 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="512346dc-051b-4a1f-8623-a2777c16bbfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/people_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/people_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/consultation_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/consultation_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/notification_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/notification_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <list id="7237be49-9790-45f9-8ab9-213ea200b35d" name="Changes by abhishek" comment="">
       <change beforePath="$PROJECT_DIR$/app/controllers/consents_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/consents_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/claim_report_generator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/claim_report_generator.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/fraud_detection_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/fraud_detection_service.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +40,19 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/app/helpers/insurance_helper.rb">
+      <ranges>
+        <range start1="10" end1="12" start2="10" end2="19" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
+        <range start1="19" end1="20" start2="26" end2="35" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
+        <range start1="24" end1="25" start2="39" end2="41" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
+        <range start1="42" end1="42" start2="58" end2="59" changelist="7237be49-9790-45f9-8ab9-213ea200b35d" />
+        <range start1="46" end1="47" start2="63" end2="66" changelist="7237be49-9790-45f9-8ab9-213ea200b35d" />
+        <range start1="51" end1="52" start2="70" end2="71" changelist="7237be49-9790-45f9-8ab9-213ea200b35d" />
+        <range start1="55" end1="56" start2="74" end2="76" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
+      </ranges>
+    </file>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -67,6 +86,9 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="OPEN_AI_TOKEN" value="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" />
+      </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
@@ -79,7 +101,7 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
       <method v="2" />
@@ -160,6 +182,12 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Rails.Development: health-helper" />
+      <item itemvalue="Rails.Production: health-helper" />
+      <item itemvalue="Rake.spec: health-helper" />
+      <item itemvalue="Rake.test: health-helper" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
@@ -192,46 +220,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb</url>
-          <line>12</line>
+          <url>file://$PROJECT_DIR$/app/controllers/notifications_controller.rb</url>
+          <line>46</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/helpers/insurance_helper.rb</url>
-          <line>38</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/helpers/central_entity_helper.rb</url>
-          <line>20</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/helpers/notification_helper.rb</url>
-          <line>5</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/consents_controller.rb</url>
-          <line>16</line>
-          <option name="timeStamp" value="40" />
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/health_helper@Development__health_helper.rcov" NAME="Development: health-helper Coverage Results" MODIFIED="1685229086614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="health-helper" />
+    <SUITE FILE_PATH="coverage/health_helper@Development__health_helper.rcov" NAME="Development: health-helper Coverage Results" MODIFIED="1685248915334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="health-helper" />
   </component>
 </project>

@@ -1,7 +1,6 @@
 class FraudDetectionService
   # TODO: add env variable
   @@client = OpenAI::Client.new(access_token: ENV.fetch("OPEN_AI_TOKEN"))
-  binding.pry
 
   MODEL = "gpt-3.5-turbo"
 
@@ -69,5 +68,35 @@ Based on the Patient Insurance Claim History, Patient Medical History, Doctor-Pa
     # result[:summary] = split_response.last if split_response.fifth.downcase == "explanation:" && split_response.last.to_s == split_response.last
     # result[:success] = !(result[:approved].nil? || result[:confidence].nil? || result[:summary].nil?)
     # return result
+  end
+
+  def self.mock_response_success(medical_history)
+    return {
+      success: true,
+      approved: "Yes",
+      confidence: "0.99",
+      summary: "This is approved as it is mocked",
+      error_message: ""
+    }
+  end
+
+  def self.mock_response_error(medical_history)
+    return {
+      success: false,
+      approved: nil,
+      confidence: nil,
+      summary: nil,
+      error_message: "Mocked error"
+    }
+  end
+
+  def self.mock_response_fail(medical_history)
+    return {
+      success: true,
+      approved: "No",
+      confidence: "0.99",
+      summary: "This is rejected as it is mocked",
+      error_message: ""
+    }
   end
 end

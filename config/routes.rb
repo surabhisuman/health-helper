@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   #
   #
   post '/approve_consent', to: "consents#approve_consent"
+  post '/notification/:id/approve', to: "notifications#approve_notification"
 end

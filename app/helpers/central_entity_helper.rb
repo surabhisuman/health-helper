@@ -6,10 +6,10 @@ module CentralEntityHelper
       return { is_eligible: false } unless health_report
       health_report.insurance_policies.each do |policy|
         if policy.covers.include?(claim_type.downcase) && claim_amount <= policy.coverage.to_i
-          return { eligible_policy_id: policy.id, max_coverage_left: policy.coverage, is_eligible: true }
+          return { eligible_policy_id: policy.id, max_coverage_left: policy.coverage, is_eligible: true, requester: policy.insurer}
         end
       end
-      { is_eligible: false }
+      { is_eligible: false, msg: "claim limit exceeds coverage" }
       # get uhid of customer
       # get health record
       # check insurances and it's active status

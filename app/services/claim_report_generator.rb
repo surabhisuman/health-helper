@@ -44,9 +44,9 @@ Insurance Provider: %{insurance_provider}
     @claims.each_with_index do |claim, index|
       claim_data = CLAIM_HISTORY_TEMPLATE % {
         index: index + 1,
-        year_of_claim: claim.date_of_service.year,
+        year_of_claim: claim.date_of_service&.year,
         insurance_provider: claim.insurance_policy.insurer,
-        date_of_claim: claim.date_of_service.strftime("%b %d, %Y"),
+        date_of_claim: claim.date_of_service&.strftime("%b %d, %Y"),
         health_care_provider: claim.provider,
         diagnosis: claim.diagnosis,
         procedure: claim.procedure,

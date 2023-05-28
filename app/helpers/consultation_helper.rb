@@ -17,7 +17,7 @@ module ConsultationHelper
           claims << nc
         end
       end
-      consultation.update(invoices: invoices, prescriptions: prescriptions, claims: claims)
+      consultation.update(invoices: invoices, prescriptions: prescriptions, claims: claims, status: 'completed')
       return consultation
     end
 

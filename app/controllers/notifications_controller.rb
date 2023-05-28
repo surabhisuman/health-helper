@@ -1,5 +1,5 @@
 class NotificationsController < ApplicationController
-  before_action :set_notification, only: %i[ show update destroy ]
+  before_action :set_notification, only: %i[ show update destroy approve_notification]
 
   # GET /notifications?person_id
   def index
@@ -40,6 +40,18 @@ class NotificationsController < ApplicationController
   # DELETE /notifications/1
   def destroy
     @notification.destroy
+  end
+
+  def approve_notification
+    notification_id = params[:id]
+    approval = params[:approval] # boolean (true/false)
+    consultation = @notification.consultation
+    Consent.create(consultation_id: consultation.id, person_id: @notification.person_id, registered_on: Time.now)
+    if approval
+      @notification.update(notification_type: Notification::TYPE["NOTICE"], data: @notification.data + " Approved")
+    else
+      @notification.update(notification_type: Notification::TYPE["NOTICE"], data: @notification.data + " Rejected")
+    end
   end
 
   private
