@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_27_225045) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_27_235615) do
   create_table "claim_status_histories", force: :cascade do |t|
     t.integer "claim_id"
     t.string "transition_from"
@@ -95,7 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_225045) do
     t.string "title"
     t.string "data"
     t.string "sender"
-    t.string "type"
+    t.string "notification_type"
     t.integer "consultation_id"
     t.index ["person_id"], name: "index_notifications_on_person_id"
   end

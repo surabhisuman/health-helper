@@ -1,10 +1,8 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: %i[ show update destroy ]
 
-  # GET /notifications
+  # GET /notifications?person_id
   def index
-    # fetch all notifications, delete all notification in current scope, send notification over http
-    # wait for next request to come in. one more thing, FE pe state nahi kar payneg manage. no code tool very limited. yes. ok
     if params[:person_id].present?
       @notifications = Notification.where(person_id: params[:person_id])
     else

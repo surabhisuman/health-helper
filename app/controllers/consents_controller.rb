@@ -13,6 +13,13 @@ class ConsentsController < ApplicationController
     render json: @consent
   end
 
+  def approve_consent
+    @consent = Consent.create(consultation_id: params[:consultation_id], person_id: params[:person_id], registered_on: Time.now)
+    notification = Notification.find_by(id: params[:notification_id])
+    notification.update(notification_type: Notification::TYPE["NOTICE"], data: @notification.data + " Approved")
+    render json: @consent
+  end
+
   # POST /consents
   def create
     @consent = Consent.new(consent_params)

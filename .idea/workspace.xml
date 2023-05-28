@@ -2,36 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="512346dc-051b-4a1f-8623-a2777c16bbfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/helpers/consultation_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/health-helper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/health-helper.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/central_entity_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/insurance_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/helpers/notification_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/notification_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/claim.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/claim.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/consent.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/consent.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/health_report.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/health_report.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/invoice.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/invoice.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/prescription.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/prescription.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20230527083659_create_health_reports.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20230527083659_create_health_reports.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <list id="7237be49-9790-45f9-8ab9-213ea200b35d" name="Changes by abhishek" comment="">
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/consents_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/consents_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/health_report.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/health_report.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/insurance_policy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/insurance_policy.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/notification.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/notification.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/fraud_detection_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/fraud_detection_service.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20230527081421_create_invoices.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20230527081421_create_invoices.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20230527081548_create_insurance_policies.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20230527081548_create_insurance_policies.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20230527083418_create_prescriptions.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20230527083418_create_prescriptions.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,24 +34,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/app/models/health_report.rb">
-      <ranges>
-        <range start1="1" end1="2" start2="1" end2="2" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
-        <range start1="3" end1="5" start2="3" end2="3" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
-        <range start1="7" end1="8" start2="5" end2="5" changelist="7237be49-9790-45f9-8ab9-213ea200b35d" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="2" changelist="7237be49-9790-45f9-8ab9-213ea200b35d" />
-        <range start1="1" end1="1" start2="3" end2="5" changelist="7237be49-9790-45f9-8ab9-213ea200b35d" />
-        <range start1="19" end1="20" start2="23" end2="24" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
-        <range start1="21" end1="22" start2="25" end2="27" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
-        <range start1="32" end1="34" start2="37" end2="46" changelist="512346dc-051b-4a1f-8623-a2777c16bbfe" />
-      </ranges>
-    </file>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -255,12 +216,17 @@
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/health_care_provider_controller.rb</url>
-          <line>42</line>
+          <url>file://$PROJECT_DIR$/app/helpers/notification_helper.rb</url>
+          <line>5</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="38" />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/controllers/consents_controller.rb</url>
+          <line>16</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

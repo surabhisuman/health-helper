@@ -1,9 +1,9 @@
 class AddColumnsToClaims < ActiveRecord::Migration[7.0]
   # - Date of Service: 10th March, 2022
-  # - Provider: Ruby Hall Clinic, Pune - already in place name change?todo didn;t get
+  # - Provider: Ruby Hall Clinic, Pune
   # - Diagnosis: Pregnancy
   # - Procedure: Caesarean section, Hospitalization (for 3 days)
-  # - Claim Amount: ₹1,80,000 - already in place name change?todo
+  # - Claim Amount: ₹1,80,000
   # - Paid by Insurance: ₹1,62,000
   # - Out of Pocket: ₹18,000
 

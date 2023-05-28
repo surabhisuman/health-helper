@@ -12,7 +12,7 @@ module InsuranceHelper
       #todo: stitch some mechanism to create consent when notification is approved or just create consent from seeds
       consent = Consent.find_by(person_id: customer_id, consultation_id: consultation.id)
       #todo: comment next line
-      consent = Consent.create(consultation: consultation, person_id: customer_id, registered_on: Time.now)
+      # consent = Consent.create(consultation: consultation, person_id: customer_id, registered_on: Time.now)
       # a consent is valid for 2 days
       if consent && (Time.now-1.day..Time.now+2.days).cover?(consent.registered_on)
         # health_report = HealthReport.find_by_person_id(customer_id)
@@ -20,7 +20,7 @@ module InsuranceHelper
         claim = Claim.create(status: "pre-auth-approved", person_id: customer_id, insurance_policy_id: eligible_policy_id, consultation_id: consultation.id)
         return { "success": true, "claim_id": claim.id, "consultation_id": consultation.id, msg: "Pre auth claim registered successfully" }
       else
-        NotificationHelper.send_notification(requester_id, customer_id, "Pre Auth Request", consultation.id)
+        NotificationHelper.send_notification(requester_id, customer_id, "Pre Auth Request", consultation.id, "CONSENT")
         # send notification
         return { "success": false, "msg": "Consent pending fom customer" }
       end
@@ -48,12 +48,12 @@ module InsuranceHelper
           updateClaimStatus("approved", claim)
           updated_coverage = insured_policy.coverage - amount
           insured_policy.update(coverage: updated_coverage)
-          NotificationHelper.send_notification(insured_policy.insurer, claim.person_id, "Claim of Rs." + (amount.to_s) +" approved", claim.consultation_id)
+          NotificationHelper.send_notification(insured_policy.insurer, claim.person_id, "Claim of Rs." + (amount.to_s) +" approved", claim.consultation_id, "NOTICE")
           return {"success": true, "msg": "Claim processed successfully"}
         end
       end
       updateClaimStatus("rejected", claim)
-      NotificationHelper.send_notification(insured_policy.insurer, claim.person_id, "Claim of Rs." + amount +" rejected", claim.consultation_id)
+      NotificationHelper.send_notification(insured_policy.insurer, claim.person_id, "Claim of Rs." + amount +" rejected", claim.consultation_id, "NOTICE")
     end
 
     private
